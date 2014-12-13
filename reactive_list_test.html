@@ -1,0 +1,17 @@
+<body>
+  {{> list}}
+</body>
+
+
+
+<template name='list'>
+  <h1>Input for the list</h1>
+  <input type="text" name="some_name" value="">
+  {{#each listItems}}
+    {{> item}}
+  {{/each}}
+</template>
+
+<template name='item'>
+  <li>{{ this }}</li>
+</template>
