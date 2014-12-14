@@ -1,17 +1,31 @@
 <body>
-  {{> list}}
+  {{> personForm}}
+  {{> personList}}
 </body>
 
-
-
-<template name='list'>
-  <h1>Input for the list</h1>
-  <input type="text" name="some_name" value="">
-  {{#each listItems}}
-    {{> item}}
-  {{/each}}
+<template name='personForm'>
+  <div>
+    <input type="text" name="" id="name" value="">
+    <button name="">Add</button>
+  </div>
 </template>
 
-<template name='item'>
-  <li>{{ this }}</li>
+<template name='personList'>
+  <h1>People List</h1>
+  <ul>
+    {{#each people}}
+      {{> person}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name='person'>
+  <li>
+    {{#if editing}}
+      <input type="text" name="" value="{{name}}">
+    {{else}}
+      <span class="name"> {{name}}</span>
+    {{/if}}
+    <span class="del">(X)</span>
+  </li>
 </template>
